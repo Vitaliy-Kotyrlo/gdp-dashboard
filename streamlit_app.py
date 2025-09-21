@@ -79,7 +79,8 @@ But it's otherwise a great (and did I mention _free_?) source of data.
 min_value = gdp_df['Year'].min()
 max_value = gdp_df['Year'].max()
 
-from_year, to_year = st.slider(
+st.sidebar.header("Filters")
+from_year, to_year = st.sidebar.slider(
     'Which years are you interested in?',
     min_value=min_value,
     max_value=max_value,
@@ -90,7 +91,7 @@ countries = gdp_df['Country Code'].unique()
 if not len(countries):
     st.warning("Select at least one country")
 
-selected_countries = st.multiselect(
+selected_countries = st.sidebar.multiselect(
     'Which countries would you like to view?',
     countries,
     ['DEU', 'FRA', 'GBR', 'BRA', 'MEX', 'JPN'])
