@@ -7,6 +7,7 @@ from pathlib import Path
 st.set_page_config(
     page_title='GDP dashboard',
     page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
+    layout="wide"
 )
 
 # -----------------------------------------------------------------------------
@@ -109,15 +110,7 @@ st.header('GDP over time', divider='gray')
 
 ''
 
-st.line_chart(
-    filtered_gdp_df,
-    x='Year',
-    y='GDP',
-    color='Country Code',
-)
 
-''
-''
 
 
 first_year = gdp_df[gdp_df['Year'] == from_year]
@@ -149,3 +142,14 @@ for i, country in enumerate(selected_countries):
             delta=growth,
             delta_color=delta_color
         )
+
+
+st.line_chart(
+    filtered_gdp_df,
+    x='Year',
+    y='GDP',
+    color='Country Code',
+)
+
+''
+''
